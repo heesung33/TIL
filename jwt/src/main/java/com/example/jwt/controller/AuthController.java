@@ -1,14 +1,12 @@
 package com.example.jwt.controller;
 
 
+import com.example.jwt.payload.LoginRequest;
 import com.example.jwt.payload.SignupRequest;
+import com.example.jwt.payload.TokenResponse;
 import com.example.jwt.service.AuthService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -21,5 +19,15 @@ public class AuthController {
     @PostMapping("/signup")
     public void signup(@RequestBody SignupRequest signupRequest) {
         authService.signup(signupRequest);
+    }
+
+    @PostMapping("/signin")
+    public TokenResponse signin(@RequestBody LoginRequest loginRequest) {
+        return authService.signin(loginRequest);
+    }
+
+    @PutMapping("reissue")
+    public TokenResponse reissue(@RequestHeader(name = "x-refresh-token") String token) {
+        return authService.reissue(token);
     }
 }
