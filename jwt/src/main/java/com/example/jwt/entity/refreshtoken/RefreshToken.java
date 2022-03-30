@@ -2,11 +2,9 @@ package com.example.jwt.entity.refreshtoken;
 
 
 import lombok.*;
-import org.springframework.stereotype.Indexed;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 
 @Getter
