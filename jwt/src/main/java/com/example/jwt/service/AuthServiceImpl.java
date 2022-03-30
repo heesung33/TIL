@@ -45,7 +45,7 @@ public class AuthServiceImpl implements AuthService{
     @Transactional
     public TokenResponse signin(LoginRequest loginRequest) {
         User user = userRepository.findByUsername(loginRequest.getUsername())
-                .orElseThrow(UserNotFoundException::new);
+                .orElseThrow(() -> UserNotFoundException.EXCEPTION);
         if (!passwordEncoder.matches(loginRequest.getPassword(), user.getPassword()))
             throw InvalidPasswordException.EXCEPTTION;
 
@@ -71,14 +71,14 @@ public class AuthServiceImpl implements AuthService{
     @Transactional
     public TokenResponse reissue(String refreshToken) {
         if(!tokenProvider.isRefreshToken(refreshToken)) {
-            throw new InvalidTokenException();
+            throw InvalidTokenException.EXCEPTION;
         }
 
         RefreshToken newRefreshToken = refreshTokenRepository.findByRefreshToken(refreshToken)
                 .map(refresh -> refreshTokenRepository.save(
                         refresh.update(REFRESH_TOKEN_EXPIRATION_TIME)
                 ))
-                .orElseThrow(RefreshTokenNotFoundException::new);
+                .orElseThrow(() -> RefreshTokenNotFoundException.EXCEPTION);
 
         return new TokenResponse(tokenProvider.createAccessToken(newRefreshToken.getUsername()), refreshToken);
     }
