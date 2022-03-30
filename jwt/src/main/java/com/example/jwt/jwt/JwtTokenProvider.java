@@ -87,11 +87,11 @@ public class JwtTokenProvider {
                     .parseClaimsJws(token)
                     .getBody();
         } catch (MalformedJwtException | UnsupportedJwtException e) {
-            throw new IncorrectTokenException();
+            throw IncorrectTokenException.EXCEPTION;
         } catch (ExpiredJwtException e) {
-            throw new ExpiredAccessTokenException();
+            throw ExpiredAccessTokenException.EXCEPTION;
         } catch (Exception e) {
-            throw new InvalidTokenException();
+            throw InvalidTokenException.EXCEPTION;
         }
     }
     public boolean validateToken(String token) {
@@ -109,11 +109,11 @@ public class JwtTokenProvider {
 
             return claims.get("type").equals("refresh") && !claims.getExpiration().before(new Date());
         } catch (MalformedJwtException | UnsupportedJwtException e) {
-            throw new IncorrectTokenException();
+            throw IncorrectTokenException.EXCEPTION;
         } catch (ExpiredJwtException e) {
-            throw new ExpiredRefreshTokenException();
+            throw ExpiredRefreshTokenException.EXCEPTION;
         } catch (Exception e) {
-            throw new InvalidTokenException();
+            throw InvalidTokenException.EXCEPTION;
         }
     }
 
