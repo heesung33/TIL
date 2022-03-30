@@ -1,0 +1,18 @@
+spring:
+  mail:
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: 'true'
+          auth: 'true'
+    host: ${mailhost}
+    username: ${email}
+    debug: 'true'
+    password: ${mailpassword}
+    default:
+      encoding: UTF-8
+    port: ${mailport}
+    transport:
+      protocol: smtp
+
