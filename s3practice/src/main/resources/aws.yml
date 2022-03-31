@@ -1,0 +1,11 @@
+cloud:
+  aws:
+    credentials:
+      accessKey: AKIATE2VWK4FG55Q2JFE
+      secretKey: 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
+    s3:
+     bucket: heesung
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
