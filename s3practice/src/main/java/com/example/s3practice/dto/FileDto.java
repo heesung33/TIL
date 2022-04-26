@@ -9,7 +9,7 @@ public class FileDto {
     @AllArgsConstructor
     @NoArgsConstructor
     @Getter
-    public static class FileName{
+    public static class FileName {
         private String name;
     }
 }

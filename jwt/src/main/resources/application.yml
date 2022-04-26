@@ -14,9 +14,9 @@ spring:
     password: ${DB_PWD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-  jwt :
-    header : ${jwt.header}
-    prefix : ${jwt.prefix}
-    exp :
-      access : ${jwt.exp.access}
-      refresh : ${jwt.exp.refresh}
+  jwt:
+    header: ${jwt.header}
+    prefix: ${jwt.prefix}
+    exp:
+      access: ${jwt.exp.access}
+      refresh: ${jwt.exp.refresh}

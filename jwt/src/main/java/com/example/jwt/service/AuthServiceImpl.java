@@ -22,7 +22,7 @@ import javax.transaction.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class AuthServiceImpl implements AuthService{
+public class AuthServiceImpl implements AuthService {
 
     @Value("${jwt.exp.refresh}")
     private Long REFRESH_TOKEN_EXPIRATION_TIME;
@@ -70,7 +70,7 @@ public class AuthServiceImpl implements AuthService{
     @Override
     @Transactional
     public TokenResponse reissue(String refreshToken) {
-        if(!tokenProvider.isRefreshToken(refreshToken)) {
+        if (!tokenProvider.isRefreshToken(refreshToken)) {
             throw InvalidTokenException.EXCEPTION;
         }
 

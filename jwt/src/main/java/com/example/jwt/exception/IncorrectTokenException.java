@@ -6,7 +6,7 @@ public class IncorrectTokenException extends BusinessException {
             new IncorrectTokenException();
 
 
-    private IncorrectTokenException(){
+    private IncorrectTokenException() {
         super(ErrorCode.INCORRECT_TOKEN);
     }
 }

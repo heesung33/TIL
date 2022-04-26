@@ -6,7 +6,7 @@ public class InvalidPasswordException extends BusinessException {
             new InvalidPasswordException();
 
 
-    private InvalidPasswordException(){
+    private InvalidPasswordException() {
         super(ErrorCode.INVALID_PASSWORD);
     }
 }

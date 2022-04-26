@@ -22,17 +22,15 @@ public class Board {
     private String bookmaker;
 
     @Column(nullable = false)
-    private String  creater;
+    private String creater;
 
     @Builder
     public Board(String bookname, String bookmaker, String creater) {
-        this.bookmaker=bookmaker;
-        this.bookname=bookname;
-        this.creater=creater;
+        this.bookmaker = bookmaker;
+        this.bookname = bookname;
+        this.creater = creater;
 
     }
-
-
 
 
 }

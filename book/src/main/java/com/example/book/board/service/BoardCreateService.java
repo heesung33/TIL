@@ -20,13 +20,14 @@ public class BoardCreateService {
     public Board savePost(BoardDto boardDto) {
         return boardRepository.save(boardDto.toEntity());
     }
+
     @Transactional
     public List<BoardDto> getBoardList() throws IOException {
         List<Board> boardList = boardRepository.findAll();
         List<BoardDto> boardDtoList = new ArrayList<>();
 
 
-        for(Board board : boardList) {
+        for (Board board : boardList) {
 
 
             BoardDto boardDto = BoardDto.builder()

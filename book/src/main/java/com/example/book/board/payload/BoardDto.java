@@ -22,9 +22,9 @@ public class BoardDto {
     }
 
     @Builder
-    public BoardDto(String bookname, String bookmaker, String creater){
-        this.bookmaker=bookmaker;
-        this.bookname=bookname;
-        this.creater=creater;
+    public BoardDto(String bookname, String bookmaker, String creater) {
+        this.bookmaker = bookmaker;
+        this.bookname = bookname;
+        this.creater = creater;
     }
 }

@@ -15,12 +15,12 @@ public class S3Controller {
     private final S3Service s3Service;
 
     @PostMapping("/upload")
-    public void upload(@RequestPart("file")MultipartFile file) throws IOException {
+    public void upload(@RequestPart("file") MultipartFile file) throws IOException {
         s3Service.upload(file);
     }
 
     @DeleteMapping("/remove")
-    public void delete(@RequestBody FileDto.FileName request){
+    public void delete(@RequestBody FileDto.FileName request) {
         s3Service.delete(request.getName());
     }
 }

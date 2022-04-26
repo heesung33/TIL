@@ -55,6 +55,7 @@ public class JwtTokenProvider {
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
                 .compact();
     }
+
     public String createRefreshToken(String username) {
         return Jwts.builder()
                 .setHeaderParam("typ", "jwt")
@@ -74,7 +75,7 @@ public class JwtTokenProvider {
     public String resolveToken(HttpServletRequest request) {
         String token = request.getHeader(HEADER);
 
-        if(StringUtils.hasText(token) && token.startsWith(PREFIX)) {
+        if (StringUtils.hasText(token) && token.startsWith(PREFIX)) {
             return token.substring(7);
         }
         return null;
@@ -94,6 +95,7 @@ public class JwtTokenProvider {
             throw InvalidTokenException.EXCEPTION;
         }
     }
+
     public boolean validateToken(String token) {
         return !getUsername(token)
                 .getExpiration()

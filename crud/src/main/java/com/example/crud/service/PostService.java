@@ -21,14 +21,14 @@ public class PostService {
     @Transactional
     public String create(PostRequest postRequest) {
         postRepository.save(Post.builder()
-                        .title(postRequest.getTitle())
-                        .content(postRequest.getContent())
+                .title(postRequest.getTitle())
+                .content(postRequest.getContent())
                 .build());
         return "success!";
     }
 
     @Transactional
-    public String delete(String title){
+    public String delete(String title) {
         postRepository.deleteByTitle(title);
         return "success";
     }
@@ -63,8 +63,8 @@ public class PostService {
     public void updateEx(PostRequest request, Long id) {
         postRepository.deleteById(id);
         postRepository.save(Post.builder()
-                        .title(request.getTitle())
-                        .content(request.getContent())
+                .title(request.getTitle())
+                .content(request.getContent())
                 .build());
     }
 

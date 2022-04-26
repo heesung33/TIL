@@ -6,6 +6,8 @@ import com.example.jwt.payload.TokenResponse;
 
 public interface AuthService {
     void signup(SignupRequest signupRequest);
+
     TokenResponse signin(LoginRequest loginRequest);
+
     TokenResponse reissue(String token);
 }
