@@ -16,3 +16,14 @@ spring:
     transport:
       protocol: smtp
 
+  main:
+    allow-bean-definition-overriding: 'true'
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+
+
+
