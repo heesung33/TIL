@@ -1,22 +1,19 @@
 package com.example.email.controller;
 
+import com.example.email.dto.EmailRequest;
 import com.example.email.service.MailService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@RequiredArgsConstructor
 public class MailController {
 
     private final MailService mailService;
 
-    public MailController(MailService mailService) {
-        this.mailService = mailService;
-    }
-
-    @GetMapping("/{email}")
-    public String SendMail(@PathVariable String email){
-        return mailService.SendMail(email);
+    @GetMapping("/{email}/{emailRequest}")
+    public String SendMail(@PathVariable String email, EmailRequest emailRequest) {
+        return mailService.SendMail(email, emailRequest);
     }
 }
