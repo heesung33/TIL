@@ -1,12 +1,12 @@
 package com.example.email.service;
 
 
-
+import com.example.email.dto.EmailRequest;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import java.util.Random;
+
 
 @Service
 public class MailService {
@@ -18,22 +18,18 @@ public class MailService {
         this.javaMailSender = javaMailSender;
     }
 
-    public String SendMail(String email) {
+    public String SendMail(String email, EmailRequest emailRequest) {
         System.out.println(email);
-        Random rnd = new Random();
-        StringBuilder key = new StringBuilder();
+        String key = emailRequest.getContents();
 
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(email);
-        for (int i = 0; i < 3; i++) {
-            int index = rnd.nextInt(25) + 65;
-            key.append((char) index);
-        }
-        int numIndex = rnd.nextInt(9999) + 1000;
-        key.append(numIndex);
-        message.setSubject("인증번호 입력을 위한 메일 전송");
-        message.setText("인증 번호 :" + key);
+
+        message.setSubject("메일왔셔열");
+        message.setText(key);
         javaMailSender.send(message);
-        return key.toString();
+        return key;
     }
+
+
 }
