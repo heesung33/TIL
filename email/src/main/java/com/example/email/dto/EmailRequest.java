@@ -7,5 +7,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class EmailRequest {
-    private String contents;
+    private String title;
+    private String text;
+    private String email;
 }
