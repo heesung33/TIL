@@ -12,8 +12,8 @@ public class MailController {
 
     private final MailService mailService;
 
-    @GetMapping("/{email}/{emailRequest}")
-    public String SendMail(@PathVariable String email, EmailRequest emailRequest) {
-        return mailService.SendMail(email, emailRequest);
+    @PostMapping("/send")
+    public String sendMail(@RequestBody EmailRequest request) {
+        return mailService.sendMail(request);
     }
 }
