@@ -26,6 +26,7 @@ public class MailService {
         message.setSubject(title);
         message.setText(text);
         javaMailSender.send(message);
+        System.out.println(email);
         return text;
     }
 }
