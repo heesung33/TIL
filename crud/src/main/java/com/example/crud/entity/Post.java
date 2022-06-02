@@ -7,11 +7,11 @@ import javax.persistence.*;
 
 
 @Entity
-@NoArgsConstructor
 @Builder
 @AllArgsConstructor
 @Getter
 @Setter
+@RequiredArgsConstructor
 public class Post {
 
     @Id
@@ -24,4 +24,9 @@ public class Post {
     private String content;
 
 
+    public Post update(String title, String content) {
+        this.title = title;
+        this.content = content;
+        return this;
+    }
 }
