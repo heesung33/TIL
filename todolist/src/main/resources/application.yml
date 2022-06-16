@@ -1,0 +1,15 @@
+spring:
+  main:
+    allow-bean-definition-overriding: 'true'
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/todo?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+    username: root
+    password: cjb82244
+    driver-class-name: com.mysql.cj.jdbc.Driver
