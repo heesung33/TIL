@@ -1,6 +1,5 @@
-package com.example.crud.entity.repository;
+package com.example.crud.entity.post;
 
-import com.example.crud.entity.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
