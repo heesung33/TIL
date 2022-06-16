@@ -1,4 +1,4 @@
-package com.example.crud.entity;
+package com.example.crud.entity.post;
 
 
 import lombok.*;
@@ -10,8 +10,7 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @Getter
-@Setter
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class Post {
 
     @Id
