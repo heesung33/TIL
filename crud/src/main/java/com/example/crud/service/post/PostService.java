@@ -1,14 +1,14 @@
-package com.example.crud.service;
+package com.example.crud.service.post;
 
 
-import com.example.crud.controller.dto.PostRequest;
-import com.example.crud.controller.dto.PostResponse;
-import com.example.crud.entity.Post;
-import com.example.crud.entity.repository.PostRepository;
+import com.example.crud.controller.dto.request.PostRequest;
+import com.example.crud.controller.dto.response.PostResponse;
+import com.example.crud.entity.post.Post;
+import com.example.crud.entity.post.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 
@@ -19,24 +19,24 @@ public class PostService {
     private final PostRepository postRepository;
 
     @Transactional
-    public String create(PostRequest postRequest) {
+    public void create(PostRequest postRequest) {
         postRepository.save(Post.builder()
                 .title(postRequest.getTitle())
                 .content(postRequest.getContent())
                 .build());
-        return "success!";
     }
 
     @Transactional
-    public String delete(String title) {
-        postRepository.deleteByTitle(title);
-        return "success";
+    public void delete(Long id) {
+        postRepository.deleteById(id);
     }
 
+    @Transactional
     public List<Post> read() {
         return postRepository.findAll();
     }
 
+    @Transactional
     public PostResponse get(Long id) {
         return postRepository.findById(id)
                 .map(post -> {
@@ -59,7 +59,7 @@ public class PostService {
                 .orElseThrow(RuntimeException::new);
     }
 
-
+    @Transactional
     public void updateEx(PostRequest request, Long id) {
         postRepository.deleteById(id);
         postRepository.save(Post.builder()
