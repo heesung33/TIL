@@ -1,4 +1,4 @@
-package com.example.crud.controller.dto;
+package com.example.crud.controller.dto.request;
 
 
 import lombok.Getter;
