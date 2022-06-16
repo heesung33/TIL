@@ -1,4 +1,4 @@
-package com.example.crud.controller.dto;
+package com.example.crud.controller.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
