@@ -1,4 +1,4 @@
-package com.example.crud.controller.dto.response;
+package com.example.crud.api.dto.response;
 
 
 import com.example.crud.entity.comment.Comment;
