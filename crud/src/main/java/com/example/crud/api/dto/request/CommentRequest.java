@@ -1,4 +1,4 @@
-package com.example.crud.controller.dto.request;
+package com.example.crud.api.dto.request;
 
 
 import lombok.AllArgsConstructor;
