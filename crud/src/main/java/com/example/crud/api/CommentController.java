@@ -2,22 +2,28 @@ package com.example.crud.api;
 
 import com.example.crud.api.dto.request.CommentRequest;
 import com.example.crud.api.dto.response.CommentResponse;
+import com.example.crud.service.comment.CommentDeleteService;
 import com.example.crud.service.comment.CommentWriteService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/comment")
 public class CommentController {
-    private final CommentWriteService commentService;
 
-    @PostMapping("/comment")
-    public CommentResponse writeComment(@RequestBody CommentRequest commentRequest) {
-        return commentService.execute(commentRequest);
+    private final CommentWriteService commentWriteServiceService;
+    private final CommentDeleteService commentDeleteService;
+
+    @PostMapping("/create")
+    public CommentResponse createComment(@RequestBody CommentRequest commentRequest) {
+        return commentWriteServiceService.execute(commentRequest);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public void deleteComment(@PathVariable long id) {
+        commentDeleteService.execute(id);
+    }
 
 
 }
