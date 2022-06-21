@@ -17,7 +17,7 @@ public class PostController {
 
     private final PostCreateService postService;
     private final PostDeleteService postDeleteService;
-    private final PostReadService postReadService;
+    private final PostGetAllService postGetAllService;
     private final PostGetService postGetService;
     private final PostUpdateService postUpdateService;
 
@@ -27,8 +27,8 @@ public class PostController {
     }
 
     @GetMapping("/get")
-    public List<Post> read() {
-        return postReadService.execute();
+    public List<Post> getAll() {
+        return postGetAllService.execute();
     }
 
     @DeleteMapping("/delete/{id}")
