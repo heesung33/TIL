@@ -7,10 +7,8 @@ import javax.persistence.*;
 
 
 @Entity
-@Builder
-@AllArgsConstructor
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Post {
 
     @Id
@@ -22,6 +20,11 @@ public class Post {
 
     private String content;
 
+    @Builder
+    public Post(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 
     public Post update(String title, String content) {
         this.title = title;
