@@ -20,6 +20,7 @@ public class CommentUpdateService {
                 .map(newComment -> newComment.update(
                         commentRequest.getComment(),
                         commentRequest.getUserId()
+
                 ))
                 .orElseThrow(RuntimeException::new);
     }
