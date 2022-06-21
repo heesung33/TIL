@@ -10,7 +10,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class PostReadService {
+public class PostGetAllService {
 
     private final PostRepository postRepository;
 
