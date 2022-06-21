@@ -19,8 +19,8 @@ public class CommentWriteService {
     private final CommentRepository commentRepository;
 
     @Transactional
-    public CommentResponse execute(CommentRequest commentRequest){
-        return postRepository.findById(commentRequest.getBoardId())
+    public void execute(CommentRequest commentRequest){
+        postRepository.findById(commentRequest.getBoardId())
                 .map(post -> {
                     Comment comment = Comment.builder()
                             .userId(commentRequest.getUserId())
