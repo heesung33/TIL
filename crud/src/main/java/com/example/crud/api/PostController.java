@@ -12,6 +12,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/post")
 public class PostController {
 
     private final PostCreateService postService;
@@ -20,7 +21,7 @@ public class PostController {
     private final PostGetService postGetService;
     private final PostUpdateService postUpdateService;
 
-    @PostMapping("/post")
+    @PostMapping("/create")
     public void create(@RequestBody PostRequest postRequest) {
       postService.execute(postRequest);
     }
@@ -35,12 +36,12 @@ public class PostController {
         postDeleteService.execute(id);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get/{id}")
     public PostResponse get(@PathVariable Long id) {
         return postGetService.execute(id);
     }
 
-    @PatchMapping("{id}")
+    @PatchMapping("/update/{id}")
     public void update(@RequestBody PostRequest request, @PathVariable Long id) {
         postUpdateService.execute(request, id);
     }
