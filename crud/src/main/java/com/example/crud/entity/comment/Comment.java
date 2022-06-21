@@ -9,9 +9,7 @@ import javax.persistence.*;
 
 
 @Getter
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 public class Comment extends BaseTimeEntity {
 
@@ -26,6 +24,13 @@ public class Comment extends BaseTimeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
     private Post post;
+
+    @Builder
+    public Comment(String userId, String comment, Post post) {
+        this.userId = userId;
+        this.comment = comment;
+        this.post = post;
+    }
 
     public Comment update(String userId, String comment) {
         this.userId = userId;
