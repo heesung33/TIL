@@ -1,6 +1,7 @@
-package com.example.todolist.domain.todolist.service;
+package com.example.todolist.domain.todolist.service.todolist;
 
 import com.example.todolist.domain.todolist.domain.ToDoList;
+
 import com.example.todolist.domain.todolist.domain.repository.ToDoListRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.example.todolist.domain.todolist.service;
+package com.example.todolist.domain.todolist.service.todolist;
 
 import com.example.todolist.domain.todolist.api.dto.request.ToDoRecord;
 import com.example.todolist.domain.todolist.domain.ToDoList;

@@ -1,6 +1,6 @@
-package com.example.todolist.domain.todolist.domain.repository;
+package com.example.todolist.domain.todolist.domain.todolist.repository;
 
-import com.example.todolist.domain.todolist.domain.ToDoList;
+import com.example.todolist.domain.todolist.domain.todolist.ToDoList;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
