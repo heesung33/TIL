@@ -1,6 +1,6 @@
 package com.example.todolist.domain.comment.service;
 
-import com.example.todolist.domain.comment.api.dto.request.CommentRecord;
+import com.example.todolist.domain.comment.api.dto.request.CommentRecordRequset;
 import com.example.todolist.domain.comment.domain.Comment;
 import com.example.todolist.domain.comment.domain.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ public class CommentUpdateService {
     private final CommentRepository commentRepository;
 
     @Transactional
-    public void execute(CommentRecord commentRecord, Long id) {
+    public void execute(CommentRecordRequset commentRecord, Long id) {
         Comment comment = commentRepository.findById(id).orElseThrow(RuntimeException::new);
 
         comment.update(commentRecord.content());
