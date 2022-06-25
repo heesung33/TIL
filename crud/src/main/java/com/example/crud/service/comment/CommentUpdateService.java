@@ -18,8 +18,7 @@ public class CommentUpdateService {
     public void execute(CommentRequest commentRequest, long id) {
         commentRepository.findById(id)
                 .map(newComment -> newComment.update(
-                        commentRequest.getComment(),
-                        commentRequest.getUserId()
+                        commentRequest.getComment()
 
                 ))
                 .orElseThrow(RuntimeException::new);
