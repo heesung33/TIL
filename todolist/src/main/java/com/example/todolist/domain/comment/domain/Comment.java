@@ -1,6 +1,7 @@
 package com.example.todolist.domain.comment.domain;
 
 
+import com.example.todolist.global.entity.BaseTimeEntity;
 import com.example.todolist.domain.todolist.domain.ToDoList;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Comment {
+public class Comment extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
