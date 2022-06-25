@@ -1,4 +1,4 @@
-package com.example.todolist.domain.global.entity;
+package com.example.todolist.global.entity;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
