@@ -1,2 +1,6 @@
-package com.example.todolist.domain.auth.domain.types;public class Role {
+package com.example.todolist.domain.auth.domain.types;
+
+public enum Role {
+    ROLE_USER,
+    ROLE_ADMIN
 }
