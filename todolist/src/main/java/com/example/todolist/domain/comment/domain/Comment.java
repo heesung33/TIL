@@ -1,7 +1,7 @@
-package com.example.todolist.domain.todolist.domain.comment;
+package com.example.todolist.domain.comment.domain;
 
 
-import com.example.todolist.domain.todolist.domain.todolist.ToDoList;
+import com.example.todolist.domain.todolist.domain.ToDoList;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +27,10 @@ public class Comment {
     public Comment(String content, ToDoList toDoList) {
         this.content = content;
         this.toDoList = toDoList;
+    }
+
+    public void update(String content) {
+        this.content = content;
     }
 
 }
