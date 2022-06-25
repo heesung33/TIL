@@ -1,4 +1,4 @@
-package com.example.todolist.domain.todolist.service.comment;
+package com.example.todolist.domain.comment.service;
 
 
 import com.example.todolist.domain.comment.api.dto.request.CommentRecord;
