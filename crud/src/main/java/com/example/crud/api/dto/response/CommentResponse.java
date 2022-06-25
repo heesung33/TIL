@@ -11,5 +11,5 @@ import lombok.Getter;
 @Builder
 public class CommentResponse {
 
-    private final Comment comment;
+    private final String content;
 }
