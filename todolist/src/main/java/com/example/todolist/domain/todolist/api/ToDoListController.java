@@ -1,11 +1,9 @@
 package com.example.todolist.domain.todolist.api;
 
 import com.example.todolist.domain.todolist.api.dto.request.ToDoRecord;
+import com.example.todolist.domain.todolist.api.dto.response.ToDoResponse;
 import com.example.todolist.domain.todolist.domain.ToDoList;
-import com.example.todolist.domain.todolist.service.CreateToDoListService;
-import com.example.todolist.domain.todolist.service.DeleteToDoListService;
-import com.example.todolist.domain.todolist.service.GetToDoListService;
-import com.example.todolist.domain.todolist.service.UpdateToDoListService;
+import com.example.todolist.domain.todolist.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,12 +12,14 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/post")
 public class ToDoListController {
 
     private final CreateToDoListService createToDoListService;
     private final GetToDoListService getToDoListService;
     private final DeleteToDoListService deleteToDoListService;
     private final UpdateToDoListService updateToDoListService;
+    private final GetToDoService getToDoService;
 
     @PostMapping("/create")
     public void createToDoList(@RequestBody @Valid ToDoRecord record) {
@@ -37,7 +37,12 @@ public class ToDoListController {
     }
 
     @PatchMapping("/update/{id}")
-    public void PatchToDoList(@RequestBody ToDoRecord record, @PathVariable Long id) {
+    public void patchToDoList(@RequestBody ToDoRecord record, @PathVariable Long id) {
         updateToDoListService.execute(record, id);
+    }
+
+    @GetMapping("/getall/{id}")
+    public ToDoResponse getAllToDo(@PathVariable Long id) {
+        return getToDoService.execute(id);
     }
 }
