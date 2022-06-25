@@ -1,7 +1,7 @@
 package com.example.todolist.domain.comment.service;
 
 
-import com.example.todolist.domain.comment.api.dto.request.CommentRecord;
+import com.example.todolist.domain.comment.api.dto.request.CommentRecordRequset;
 import com.example.todolist.domain.comment.domain.Comment;
 import com.example.todolist.domain.comment.domain.repository.CommentRepository;
 import com.example.todolist.domain.todolist.domain.ToDoList;
@@ -20,7 +20,7 @@ public class CommentCreateService {
 
 
     @Transactional
-    public void execute(CommentRecord commentRecord, Long id) {
+    public void execute(CommentRecordRequset commentRecord, Long id) {
         ToDoList toDoList = toDoListRepository.findById(id).orElseThrow(RuntimeException::new);
 
         commentRepository.save(
