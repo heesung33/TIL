@@ -1,4 +1,4 @@
-package com.example.todolist.domain.todolist.api.dto.comment.response;
+package com.example.todolist.domain.todolist.api.dto.response;
 
 
 import lombok.AllArgsConstructor;
