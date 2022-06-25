@@ -23,7 +23,6 @@ public class CommentWriteService {
         postRepository.findById(commentRequest.getBoardId())
                 .map(post -> {
                     Comment comment = Comment.builder()
-                            .userId(commentRequest.getUserId())
                             .comment(commentRequest.getComment())
                             .post(post)
                             .build();
