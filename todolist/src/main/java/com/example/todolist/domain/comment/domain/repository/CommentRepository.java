@@ -1,5 +1,6 @@
-package com.example.todolist.domain.todolist.domain.comment;
+package com.example.todolist.domain.comment.domain.repository;
 
+import com.example.todolist.domain.comment.domain.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
