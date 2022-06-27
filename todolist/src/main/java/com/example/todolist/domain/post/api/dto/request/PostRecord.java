@@ -1,4 +1,4 @@
-package com.example.todolist.domain.todolist.api.dto.request;
+package com.example.todolist.domain.post.api.dto.request;
 
 import javax.validation.constraints.NotBlank;
 

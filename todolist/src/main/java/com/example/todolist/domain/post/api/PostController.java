@@ -1,9 +1,9 @@
-package com.example.todolist.domain.todolist.api;
+package com.example.todolist.domain.post.api;
 
-import com.example.todolist.domain.todolist.api.dto.request.ToDoRecord;
-import com.example.todolist.domain.todolist.api.dto.response.ToDoResponse;
-import com.example.todolist.domain.todolist.domain.ToDoList;
-import com.example.todolist.domain.todolist.service.*;
+import com.example.todolist.domain.post.api.dto.request.ToDoRecord;
+import com.example.todolist.domain.post.api.dto.response.ToDoResponse;
+import com.example.todolist.domain.post.domain.ToDoList;
+import com.example.todolist.domain.post.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

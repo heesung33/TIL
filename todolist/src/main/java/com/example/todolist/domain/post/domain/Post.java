@@ -1,4 +1,4 @@
-package com.example.todolist.domain.todolist.domain;
+package com.example.todolist.domain.post.domain;
 
 
 import com.example.todolist.global.entity.BaseTimeEntity;

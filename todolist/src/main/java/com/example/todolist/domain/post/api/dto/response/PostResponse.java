@@ -1,4 +1,4 @@
-package com.example.todolist.domain.todolist.api.dto.response;
+package com.example.todolist.domain.post.api.dto.response;
 
 
 import lombok.AllArgsConstructor;
