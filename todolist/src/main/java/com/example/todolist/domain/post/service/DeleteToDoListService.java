@@ -1,6 +1,6 @@
-package com.example.todolist.domain.todolist.service;
+package com.example.todolist.domain.post.service;
 
-import com.example.todolist.domain.todolist.domain.repository.ToDoListRepository;
+import com.example.todolist.domain.post.domain.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class DeleteToDoListService {
 
-    private final ToDoListRepository toDoListRepository;
+    private final PostRepository toDoListRepository;
 
     @Transactional
     public void  execute(Long id) {
