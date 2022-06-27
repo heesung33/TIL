@@ -1,10 +1,10 @@
-package com.example.todolist.domain.todolist.service;
+package com.example.todolist.domain.post.service;
 
 
-import com.example.todolist.domain.todolist.api.dto.request.ToDoRecord;
-import com.example.todolist.domain.todolist.domain.ToDoList;
+import com.example.todolist.domain.post.api.dto.request.PostRecord;
+import com.example.todolist.domain.post.domain.Post;
 
-import com.example.todolist.domain.todolist.domain.repository.ToDoListRepository;
+import com.example.todolist.domain.post.domain.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,12 +13,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class CreateToDoListService {
 
-    private final ToDoListRepository toDoListRepository;
+    private final PostRepository toDoListRepository;
 
     @Transactional
-    public void execute(ToDoRecord record){
+    public void execute(PostRecord record){
         toDoListRepository.save(
-                ToDoList.builder()
+                Post.builder()
                         .title(record.title())
                         .content(record.content())
                 .build());
