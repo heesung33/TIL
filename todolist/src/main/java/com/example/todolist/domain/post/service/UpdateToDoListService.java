@@ -1,8 +1,8 @@
-package com.example.todolist.domain.todolist.service;
+package com.example.todolist.domain.post.service;
 
-import com.example.todolist.domain.todolist.api.dto.request.ToDoRecord;
-import com.example.todolist.domain.todolist.domain.ToDoList;
-import com.example.todolist.domain.todolist.domain.repository.ToDoListRepository;
+import com.example.todolist.domain.post.api.dto.request.PostRecord;
+import com.example.todolist.domain.post.domain.Post;
+import com.example.todolist.domain.post.domain.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,11 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UpdateToDoListService {
 
-    private final ToDoListRepository toDoListRepository;
+    private final PostRepository toDoListRepository;
 
     @Transactional
-    public void execute(ToDoRecord record, Long id) {
-        ToDoList toDoList = toDoListRepository.findById(id).orElseThrow(RuntimeException::new);
+    public void execute(PostRecord record, Long id) {
+        Post toDoList = toDoListRepository.findById(id).orElseThrow(RuntimeException::new);
 
         toDoList.update(record.title(), record.content());
     }
