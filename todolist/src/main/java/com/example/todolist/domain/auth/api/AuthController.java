@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RequiredArgsConstructor
 @RequestMapping("/auth")
 @RestController
@@ -25,7 +27,7 @@ public class AuthController {
     }
 
     @PostMapping("/signin")
-    public TokenRecordResponse signin(@RequestBody SignInRecordRequest signInRecordRequest){
+    public TokenRecordResponse signin(@RequestBody @Valid SignInRecordRequest signInRecordRequest){
         return authSignInService.excute(signInRecordRequest);
     }
 }
