@@ -8,7 +8,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 @Builder
-public class ToDoResponse {
+public class PostResponse {
     private final String title;
     private final String content;
 }
