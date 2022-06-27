@@ -1,8 +1,8 @@
-package com.example.todolist.domain.todolist.service;
+package com.example.todolist.domain.post.service;
 
-import com.example.todolist.domain.todolist.domain.ToDoList;
+import com.example.todolist.domain.post.domain.Post;
 
-import com.example.todolist.domain.todolist.domain.repository.ToDoListRepository;
+import com.example.todolist.domain.post.domain.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,10 +14,10 @@ import java.util.List;
 @Service
 public class GetToDoListService {
 
-    private final ToDoListRepository toDoListRepository;
+    private final PostRepository toDoListRepository;
 
     @Transactional
-    public List<ToDoList> execute() {
+    public List<Post> execute() {
         return toDoListRepository.findAll();
     }
 
