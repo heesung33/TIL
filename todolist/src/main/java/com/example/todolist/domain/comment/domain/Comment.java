@@ -1,8 +1,9 @@
 package com.example.todolist.domain.comment.domain;
 
 
+import com.example.todolist.domain.auth.domain.User;
 import com.example.todolist.global.entity.BaseTimeEntity;
-import com.example.todolist.domain.todolist.domain.ToDoList;
+import com.example.todolist.domain.post.domain.Post;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,12 +23,17 @@ public class Comment extends BaseTimeEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
-    private ToDoList toDoList;
+    private Post toDoList;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Builder
-    public Comment(String content, ToDoList toDoList) {
+    public Comment(String content, Post toDoList, User user) {
         this.content = content;
         this.toDoList = toDoList;
+        this.user = user;
     }
 
     public void update(String content) {
