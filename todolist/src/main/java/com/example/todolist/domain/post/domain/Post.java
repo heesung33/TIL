@@ -16,7 +16,7 @@ import javax.persistence.Id;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class ToDoList extends BaseTimeEntity {
+public class Post extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +27,7 @@ public class ToDoList extends BaseTimeEntity {
     private String content;
 
     @Builder
-    public ToDoList(String title, String content) {
+    public Post(String title, String content) {
         this.title = title;
         this.content = content;
     }
