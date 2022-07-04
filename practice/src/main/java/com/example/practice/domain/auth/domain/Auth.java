@@ -1,4 +1,4 @@
-package com.example.practice.domain.user.domain;
+package com.example.practice.domain.auth.domain;
 
 
 import lombok.AccessLevel;
@@ -7,15 +7,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class User {
+public class Auth {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,14 +22,18 @@ public class User {
 
     private String password;
 
-    private String userName;
+    private String name;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
 
     @Builder
-    public User(String accountId, String password, String userName) {
+    public Auth(String accountId, String password, String name, Role role) {
         this.accountId = accountId;
         this.password = password;
-        this.userName = userName;
+        this.name = name;
+        this.role = role;
     }
 
 }
