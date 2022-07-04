@@ -1,4 +1,4 @@
-package com.example.practice.domain.user.presentation.dto.response;
+package com.example.practice.domain.auth.presentation.dto.response;
 
 import lombok.Getter;
 

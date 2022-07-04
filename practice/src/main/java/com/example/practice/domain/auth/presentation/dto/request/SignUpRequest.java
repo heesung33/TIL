@@ -1,4 +1,4 @@
-package com.example.practice.domain.user.presentation.dto.request;
+package com.example.practice.domain.auth.presentation.dto.request;
 
 
 import lombok.Getter;

@@ -1,8 +1,8 @@
-package com.example.practice.domain.user.service;
+package com.example.practice.domain.auth.service;
 
-import com.example.practice.domain.user.domain.User;
-import com.example.practice.domain.user.domain.repository.UserRepository;
-import com.example.practice.domain.user.presentation.dto.request.SignUpRequest;
+import com.example.practice.domain.auth.domain.Auth;
+import com.example.practice.domain.auth.domain.repository.AuthRepository;
+import com.example.practice.domain.auth.presentation.dto.request.SignUpRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -12,13 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class SignUpService {
 
-    private final UserRepository userRepository;
+    private final AuthRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
     public void execute(SignUpRequest signUpRequest) {
 
-        User user = User.builder()
+        Auth user = Auth.builder()
                 .accountId(signUpRequest.getAccountId())
                 .password(passwordEncoder.encode(signUpRequest.getPassword()))
                 .userName(signUpRequest.getUserName())
