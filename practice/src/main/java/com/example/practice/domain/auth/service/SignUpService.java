@@ -1,6 +1,7 @@
 package com.example.practice.domain.auth.service;
 
 import com.example.practice.domain.auth.domain.Auth;
+import com.example.practice.domain.auth.domain.Role;
 import com.example.practice.domain.auth.domain.repository.AuthRepository;
 import com.example.practice.domain.auth.presentation.dto.request.SignUpRequest;
 import lombok.RequiredArgsConstructor;
@@ -18,12 +19,13 @@ public class SignUpService {
     @Transactional
     public void execute(SignUpRequest signUpRequest) {
 
-        Auth user = Auth.builder()
+        Auth auth = Auth.builder()
                 .accountId(signUpRequest.getAccountId())
                 .password(passwordEncoder.encode(signUpRequest.getPassword()))
-                .userName(signUpRequest.getUserName())
+                .name(signUpRequest.getName())
+                .role(Role.USER)
                 .build();
 
-        userRepository.save(user);
+        userRepository.save(auth);
     }
 }
