@@ -2,8 +2,10 @@ package com.example.practice.global.security.auth;
 
 
 import com.example.practice.domain.auth.domain.repository.AuthRepository;
+import com.example.practice.global.exception.AuthNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Service
-public class AuthDetailsService {
+public class AuthDetailsService implements UserDetailsService {
 
     private final AuthRepository authRepository;
 
