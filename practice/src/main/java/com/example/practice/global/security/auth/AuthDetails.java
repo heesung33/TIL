@@ -16,6 +16,7 @@ import java.util.List;
 public class AuthDetails implements UserDetails {
 
     private final Auth auth;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
@@ -30,26 +31,26 @@ public class AuthDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return null;
+        return auth.getAccountId();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
