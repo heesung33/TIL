@@ -31,7 +31,7 @@ public class JwtTokenProvider {
     private static final String ACCESS_KEY = "access";
     private static final String REFRESH_KEY = "refresh";
     private static final String HEADER = "Authorization";
-    private static final String PREFIX = "Bearer ";
+    private static final String PREFIX = "Bearer";
 
     private final JwtProperty jwtProperty;
     private final RefreshTokenRepository refreshTokenRepository;
@@ -54,7 +54,7 @@ public class JwtTokenProvider {
     }
     private String generateToken(String accountId, Role role, String type, Long exp) {
         return Jwts.builder()
-                .signWith(SignatureAlgorithm.HS256, jwtProperty.getSecret())
+                .signWith(SignatureAlgorithm.HS256, jwtProperty.getSecretKey())
                 .setSubject(accountId)
                 .setHeaderParam("typ", type)
                 .claim("role", role)
@@ -86,7 +86,7 @@ public class JwtTokenProvider {
 
     private Claims getTokenBody(String token) {
         try {
-            return Jwts.parser().setSigningKey(jwtProperty.getSecret())
+            return Jwts.parser().setSigningKey(jwtProperty.getSecretKey())
                     .parseClaimsJws(token).getBody();
         } catch (SignatureException e) {
             throw SignatureJwtException.EXCEPTION;
