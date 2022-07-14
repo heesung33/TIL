@@ -1,7 +1,6 @@
 package com.example.practice.domain.auth.presentation;
 
 
-import com.example.practice.domain.auth.domain.Role;
 import com.example.practice.domain.auth.presentation.dto.request.SignInRequest;
 import com.example.practice.domain.auth.service.SignInService;
 import com.example.practice.domain.auth.service.SignUpService;
